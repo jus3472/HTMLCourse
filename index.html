@@ -1,0 +1,470 @@
+<!-- https://www.youtube.com/watch?v=kUMe1FH4CHE&ab_channel=freeCodeCamp.org -->
+<!-- https://validator.w3.org/ --> <!-- upload your file here to check if it has any errors -->
+<!-- you can quickly make a boilerplate html doc by typing ! followed by tab -->
+
+<!-- 
+  <info> is an opening tag and </info> is a closing tag for it. some tags are just <info/> and are called self-closing tags. These tags are used for items that don't contain content and thus don't need a closing tag. Technically, all self-closing tags can still have an opening and closing tag instead (but it is not standard practice), but regular opening and closing tags like <div>info</div> cannot be self-closing. All self closing tags like <info/> can also just be written like <info> but it's not standard practice.
+
+  When dealing with nested tags, you can never have <<. Every < must be followed by a >. A correct nested tag is: 
+  <a><abbr>hello</abbr></a>
+  -->
+
+<!-- 
+  What is an HTML element? It consists of a opening tag, content, and a closing tag. For example, <p>This is a paragraph</p>
+  The <p> is an opening tag, "This is a paragraph" is the content, and </p> is the closing tag.
+-->
+
+<!--
+  What is an attribute? It is additional info about an element, specifying properties or behavior that is not standard to the element alone. They are always placed in the opening tag and often consist of a name-value pair formatted as name="value". They modify the default behavior of elements. <a href="https://www.example.com">Visit Example</a>
+  In this example, there is an anchor opening tag and a closing tag with content inside of it. There is also an attribute inside the opening tag that modifys the element. It specifies the URL to which the link points.
+-->
+
+<!--
+  What is semantic? A tag or attribute is semantic if it doesn't affect the way the site looks but just helps browsers and assistive technologies. header, main, footer, article, aside, section, nav, etc are all semantic. <h1> to <h6> are headings and have different font sizes. However, they are mainly semantic and their sizes and other features can be completely changed with CSS.
+  Div is not semantic but is also a tag that is used to group elements. Typically, you assign it an id or class so you can style and script it. It doesn't provide any SEO like semantic tags. It is recommended to use semantic tags when you can, although you can use div if you are lazy.
+-->
+
+<!--
+  An id attribute is unique and used to identify a single element. To access it, use the # symbol.
+  A class attribute can be used by multiple elements to group them. You can't href to a class because there can be multiple elements with the same class.
+-->
+
+<!DOCTYPE html> <!-- this 'declaration' is required for every html doc -->
+<html lang="en"> <!-- this tag is also required-->
+  <head> <!-- the head section contains meta data (info that isn't on the website but used by browsers and search engines) -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Justin Jiang" />
+    <meta
+      name="description"
+      content="This page contains all the things I am learning how to create as I learn HTML."
+    />
+    <title>My First Web Page</title>
+    <!-- most common favicon size is 16x16 pixels-->
+    <link rel="icon" href="html5.png" type="image/x-icon" />
+    <link rel="stylesheet" href="main.css" type="text/css" />
+  </head>
+
+  <body>
+    <header> <!-- header is semantic, no visual effect -->
+      <h1>My Goals for the Year</h1>
+
+      <nav aria-label="primary-navigation"> <!-- nav is semantic, no visual effect -->
+        <ul>
+          <li>
+            <a href="#html">Learning HTML</a>
+          </li>
+          <li>
+            <a href="#vacation">Planning a Vacation</a>
+          </li>
+          <li>
+            <a href="#contact">Contact Me</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <hr />  <!-- just a horizontal rule or a line to separate sections-->
+
+    <main> <!-- main is semantic, no visual effect -->
+      <article id="html"> <!-- article is semantic, no visual effect -->
+        <h2>I'm Ready to Learn HTML</h2>
+        <p>This is my first web page.</p>
+        <section>
+          <h3>HTML5</h3>
+          <!-- alt is alternative text when the image doesn't load-->
+          <!-- title is additional info when the mouse is hovered over the image-->
+          <img
+            src="img/html_logo_300x300.png"
+            alt="HTML5 Logo"
+            title="I am learning HTML5"
+            width="300"
+            height="300"
+          />
+          <figure> <!-- used to encapsulate images/text that are independent from the main text-->
+            <figcaption>An Example of HTML5 code</figcaption> <!-- a caption for the figure tag-->
+            <p>
+              <code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code>
+              <!-- &lt; represents < and &gt; represents > -->
+            </p>
+          </figure>
+          <!-- <figcaption> without <figure> will just display text to the left instead of adding some space to the left-->
+        </section>
+        <section>
+          <h3>My Daily Schedule</h3>
+          <p>Let me tell you how:</p>
+          <ol>
+            <li>...I learn more about web dev.</li>
+            <li>...I plan out my schedule.</li>
+            <li>
+              ...I use resources from
+              <!-- abbr could have been replaced by div. The title attribute also could have been placed inside the anchor tag. abbr itself without an <a> will create a dotted underline of the text that will show the "title" when the user hovers over the text-->
+              <abbr title="Mozilla Developer Network">
+                <a href="https://developer.mozilla.org/">MDN.</a>
+              </abbr>
+            </li>
+          </ol>
+          <aside> <!-- semantic tag for extra info-->
+            <!-- the details container makes every info inside hidden unless toggled-->
+            <!-- the summary tag provides info before the user presses the widget-->
+            <!-- if you have a details container without a summary tag, it will just say "Details" and you can still toggle-->
+            <details>
+              <summary>
+                Guess the <mark>number of hours</mark> I code per day <!-- the mark tag just highlights text-->
+              </summary>
+              <p>
+                I start at <time datetime="08:00">8am</time> and I write code
+                for <time datetime="PT3H">3 hours</time> every morning.
+              </p>
+              <!-- the time tag is just semantic-->
+            </details>
+          </aside>
+          <br />  <!-- the break self-closing tag creates a single line space-->
+          
+          <!--
+            In a table, info is organized from top to bottom, and left to right just like the code. For example, each subsequent <tr> is placed below the previous. Every code inside a <tr> is organized from left to right. The first <td> will be to the left/beginning of the row, and each subsequent <td> will be toward the right of the previous.
+          -->
+          <table> <!-- Required tag that creates the table, otherwise, the below elements will just be plain text -->
+            <caption> <!-- adds an overarching caption for the table on the top that automatically spans all the columns-->
+              My Daily Schedule
+            </caption>
+            <thead> <!-- table head is semantic, no visual effect -->
+              <tr> <!-- table row container makes all of the info inside part of the same row-->
+                <!-- <th> or table header creates a cell where the text is a header. The text will be centered and bold-->
+                <th>&nbsp;</th> <!-- &nbsp is an entity and adds a non-breaking space (just a blank space)-->
+                <th scope="col">Time</th> 
+                <th scope="col">Activity</th>
+                <!-- scope="col" has no visual effect but tells the computer that the Time header is meant for the column-->
+              </tr>
+            </thead>
+            <tbody> <!-- table body is semantic, no visual effect -->
+              <tr>
+                <th scope="row">Morning</th>
+                <!-- <td> or table data is just regular data/text and is not bolded or centered like text inside <th> -->
+                <td>
+                  <time datetime="08:00">8am</time>-<time datetime="11:00"
+                    >11am</time
+                  >
+                </td>
+                <td>Write Code</td>
+              </tr>
+              <tr>
+                <th scope="row">Break</th>
+                <td>
+                  <time datetime="11:00">11am</time>-<time datetime="12:00"
+                    >12pm</time
+                  >
+                </td>
+                <td>Eat Lunch</td>
+              </tr>
+              <tr>
+                <th scope="row">Afternoon</th>
+                <td>
+                  <time datetime="12:00">12pm</time>-<time datetime="17:00"
+                    >5pm</time
+                  >
+                </td>
+                <td>Study for Other Courses</td>
+              </tr>
+              <tr>
+                <th scope="row">Evening</th>
+                <td rowspan="2">All Other Times</td>
+                <td>Free Time</td>
+              </tr>
+              <tr>
+                <th scope="row">Night</th>
+                <td>Sleep</td> <!-- computer automatically knows to put sleep in the third column bc the second column is taken over from the "All Other Times" because it has a rowspan="2"-->
+              </tr>
+            </tbody>
+            <tfoot> <!-- table footer is semantic, no visual effect -->
+              <tr>
+                <td colspan="3">
+                  And that's what I do every day, 5 days a week. Just eat,
+                  sleep, code ...and recharge!
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+
+        </section>
+      </article>
+
+      <hr />
+
+      <article id="vacation">
+        <h2>I Am Also Planning a Vacation</h2>
+        <p>I've been working hard and <em>really need a getaway.</em></p> <!-- emphasis or <em> italicizes text-->
+        <p>
+          I live in <abbr title="Kansas">KS</abbr> so I want to visit a beach.
+        </p>
+
+        <section>
+          <h3>Places I'd Like to Visit</h3>
+
+          <ul>
+            <li>
+              <p>I've heard good things about the Caribbean.</p>
+              <figure>
+                <img
+                  src="img/caribbean.jpg"
+                  alt="Caribbean Beach"
+                  title="I want to visit a Caribbean beach."
+                  width="400"
+                  height="225"
+                  loading="lazy"
+                />
+                <!-- the loading attribute is for images and it specifies how the browser should load them-->
+                <!-- lazy: delays loading until the user reaches the image, reducing initial page load time-->
+                <!-- eager: the default. loads the image immediately when the site is opened-->
+                <!-- auto: allows the browser to determine the best loading type, based on factors like connection speed or scrolling patterns-->
+                <figcaption>Caribbean Beach Getaway</figcaption>
+              </figure>
+            </li>
+            <li>
+              <p>I've heard good things about going here:</p>
+
+              <!-- <address> makes the text inside in the style of an address. also used for info about the site's author-->
+              <address>
+                Margaritaville Island Reserve Riviera Cancun<br />
+                Bahia Petempich Puerto Morelos, Mexico<br />
+                ColoniaMorelos, Mexico 77580
+              </address>
+              <figure>
+                <img
+                  src="img/vacation.jpg"
+                  alt="Cancun Vacation"
+                  title="It's 5 o'Clock Somewhere!"
+                  width="400"
+                  height="267"
+                  loading="lazy"
+                />
+                <figcaption>A Caribbean Vacation Image</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Places I'd Like to Avoid</h3>
+          <!-- description list or <dl> is a container and has minimal visual impact. <dt> and <dd> can technically function without <dl> but is not recommended-->
+          <!-- description term or <dt> specifies the term being described-->
+          <!-- description detail or <dd> provides the description or definition of of the term set forth by the prev <dt>-->
+          <dl>   
+            <dt>North Pole</dt>
+            <dd>I hear this is <strong>cold</strong></dd> <!-- <strong> tag bolds the text inside-->
+
+            <dt>South Pole</dt>
+            <dd>This is also cold.</dd>
+
+            <dt>Mountain Tops</dt>
+            <dd>These are also cold.</dd>
+          </dl>
+        </section>
+      </article>
+
+      <hr />
+      <article id="contact">
+        <h2>Contact Me</h2>
+        <p>I'd really like to hear from you!</p>
+
+        <!-- the form container creates a form and is required-->
+        <!-- the action attribute specifies the URL where the submitted form's data is sent to. it applies to all submission actions like buttons with type="submit" within the form unless overridden by individual controls like the formaction attribute-->
+        <!-- method="get" is the standard and specifies that the form's data is sent to the server using the HTTP GET method. it also applies to all submission actions unless overridden by individual controls like the formmethod attribute-->
+        <!-- the fieldset tag creates a box around the code inside its container, creating a coherent section-->
+        <!-- the legend tag itself will just display text. however, it is usually paired with the fieldset tag to create text in between the lines of the box, forming a caption-->
+        <form action="https://httpbin.org/get" method="get">
+          <fieldset>
+            <legend>Personal Info</legend>
+              <!-- the label tag allows you to write text and define a label. It is usually used with the input tag following it. the input tag comes with an id attribute that specifies the id and the for attribute in the label tag specifies which input the label is for. Pressing the label text on the site will automatically bring the cursor to the input text box to begin typing. This is why using a label tag is better than using <p>.-->
+              <!-- while the id attribute for the input tag is used on the front-end for HTML, CSS, and JavaScript (client-side), the name attribute is used for back-end processing of form data. it defines the key in the key-value pair sent to the backend side (server-side) when a form is submitted, allowing the server-side code (whether it's JavaScript, Java, or another language) to correctly handle each piece of input data. The value is what the user types in the input box. -->
+              <!-- the type attribute specifies the type of text allowed for the user input-->
+              <!-- the placeholder attribute displays text in the input box before the user types-->
+              <!-- the autocomplete attribute specifies whether the browser predicts/suggests info based on previous entries-->
+              <!-- the required attribute specifies the user must fill out the input field before submitting the form-->
+              <!-- the autofocus attribute focuses the input field when the page loads-->
+              <!-- boolean attributes like required and autofocus mean that its presence alone enforces the rule, regardless of its value. adding a value has no effect on the attribute. if you add multiple autofocus for different input tags, only the first will activate-->
+              <p>
+              <label for="firstName">First Name:</label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="Jane"
+                autocomplete="on"
+                required
+                autofocus
+              />
+            </p>
+            <p>
+              <label for="lastName">Last Name:</label>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Doe"
+                autocomplete="on"
+                required
+              />
+            </p>
+            <p>
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="your secret"
+                required
+              />
+            </p>
+            <p>
+              <label for="phone">Phone:</label>
+              <!-- the pattern attribute specifies a regex that the input is checked against when the form is submitted-->
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="5555555555"
+                pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                required
+              />
+            </p>
+            <p>
+              <label for="decade">Favorite Decade:</label>
+              <!-- min is the minimum acceptable value-->
+              <!-- max is the maximum acceptable value-->
+              <!-- step is the interval the user can increase or decrease by-->
+              <!-- value is the default value-->
+              <input
+                type="number"
+                name="decade"
+                id="decade"
+                min="1950"
+                max="2020"
+                step="10"
+                value="1980"
+              />
+            </p>
+
+            <!-- This creates a similar list but is structured differently. doesn't look as good compared to the one below-->
+            <!--
+              <p>
+              <label for="coffee">Favorite Coffee:</label>
+              <select name="coffee" id="coffee" multiple size="5">
+                <optgroup label="Coffees">
+                  <option value="regular coffee">Regular Coffee</option>
+                  <option value="iced coffee">Iced Coffee</option>
+                </optgroup>
+                <optgroup label="Espresso Drinks">
+                  <option value="latte" selected>Latte</option>
+                  <option value="cappuccino">Cappuccino</option>
+                  <option value="cortado">Cortado</option>
+                  <option value="americano">Americano</option>
+                </optgroup>
+                <option value="other">Other</option>
+              </select>
+              </p>
+            -->
+
+            <!-- the list attribute is required and just references the id of a datalist tag-->
+            <!-- the option tag is used with <datalist> or <select>. it defines items the user can select-->
+            <!-- the value attribute specifies the data that gets sent to the server when the form is submitted if this option is selected. it will also display the text (like coffee). if you write text between an option tag, it will show the text below value's text-->
+            <label for="coffee">Favorite Coffee:</label>
+            <input type="text" name="coffee" id="coffee" list="coffee-list" />
+            <datalist id="coffee-list">
+              <option value="coffee"></option>
+              <option value="latte"></option>
+              <option value="espresso"></option>
+              <option value="cortado"></option>
+              <option value="americano"></option>
+              <option value="other"></option>
+            </datalist>
+          </fieldset>
+
+          <br />
+
+          <fieldset>
+            <legend>What is your favorite food?</legend>
+            <!-- radio is a fill-in circle button the user can press-->
+            <!-- each input has the same name="food", so the user can only select one of them-->
+            <!-- the value attribute specifies the value in the key-value pair that is sent to the server-side. if you don't specify a value, the default value "on" will be sent. note that you should always specify the value attribute in the input tag for radio buttons and checkboxes. but for inputs like text and email, the value attribute is not needed because the user input itself becomes the value-->
+            <p>
+              <label for="tacos">Tacos</label>
+              <input type="radio" name="food" id="tacos" value="tacos" />
+            </p>
+            <p>
+              <label for="pizza">Pizza</label>
+              <input type="radio" name="food" id="pizza" value="pizza" />
+            </p>
+            <p>
+              <label for="other">Other</label>
+              <input type="radio" name="food" id="other" value="other" />
+            </p>
+          </fieldset>
+
+          <br />
+
+          <fieldset>
+            <legend>Do you have pets?</legend>
+            <!-- checkbox is a checkbox that allows users to select multiple checkboxes-->
+            <!-- although the name="pets" is the same for each input, it doesn't restrict the user the user to selecting only one option due to the type="checkbox"-->
+            <p>
+              <label for="dog">Dog</label>
+              <input type="checkbox" name="pets" id="dog" value="dog" />
+            </p>
+            <p>
+              <label for="cat">Cat</label>
+              <input type="checkbox" name="pets" id="cat" value="cat" />
+            </p>
+            <p>
+              <label for="fish">Fish</label>
+              <input type="checkbox" name="pets" id="fish" value="fish" />
+            </p>
+            <p>
+              <label for="otherPet">Other</label>
+              <input type="checkbox" name="pets" id="otherPet" value="otherPet" />
+            </p>
+          </fieldset>
+
+          <br />
+
+          <fieldset>
+            <legend>Send Me A Note</legend>
+            <label for="message">Your Message</label>
+            <br />
+            <!-- the textarea tag creates a text box where the user can type longer messages-->
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="Type your message here"
+            ></textarea>
+          </fieldset>
+
+          <br />
+
+          <!-- the button tag creates a button with the text in between-->
+          <!-- type="submit" indicates that the function of the button is to submit data-->
+          <!-- the first button (Submit) normally has an action attribute, however, the element is inside a form container which already has action="https://httpbin.org/get". thus, the form data is sent to this URL. if an action attribute doesn't exist, then the form data is sent to the current site's URL by default-->
+          <button type="submit">Submit</button>
+          <!-- the action attribute is used for <form> tags. the formaction attribute is used specifically on <button> or <input type="submit"> elements within a form. it overrides the form's default action attribute. the same is true for the method and formmethod attribute-->
+          <button type="submit" formaction="https://httpbin.org/post" formmethod="post">Post</button>
+          <!-- type="reset" indicates that pressing the button will reset everything inside the form tag that it's also in-->
+          <button type="reset">Reset</button>
+        </form>
+      </article>
+    </main>
+
+    <hr />
+
+    <footer> <!-- footer is semantic, no visual effect -->
+      <p>
+        <!-- <<< © Justin Jiang >>> -->
+        &lt;&lt;&lt; &copy; <a href="about.html">Justin Jiang</a> &gt;&gt;&gt;
+      </p>
+      <p>
+        <!-- href="#" brings the site to the top-->
+        <a href="#">Back to Top</a>
+      </p>
+    </footer>
+  </body>
+</html>
